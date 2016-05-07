@@ -56,6 +56,7 @@
 
 <body>
     <div class="container" style="padding:0px;">
+       <i class="fa fa-spinner fa-spin fa-3x fa-fw margin-bottom loader" style="display:none;"></i>
        
             <div class="col-xs-12 toolbar">
               <ul class="nav nav-tabs pull-left">
@@ -88,16 +89,16 @@
               </ul>
             </div>
             <div class="col-xs-12 leadFilters one-edge-shadow" style="padding:15px;">
-                <span class="badge name-badge">Devansh</span>
-                <span class="badge email-badge">devansh151@gmail.com</span>
-                <span class="badge no-badge">9826471527</span>
-                <i class="modify-filter fa fa-filter pull-right" aria-hidden="true"></i>
+                <span class="badge one-badge"></span>
+                <span class="badge two-badge"></span>
+                <span class="badge no-badge"></span>
+                <i class="modify-filter fa fa-filter pull-right hidden" aria-hidden="true"></i>
             </div>
             <div class="col-xs-12 search-form" style="padding:15px;">
               <div class="form-group label-floating">
                 
-                  <label class="control-label" for="username">Name</label>
-                  <input type="text" class="form-control" id="username">
+                  <label class="control-label" for="lname">Lead Name</label>
+                  <input type="text" class="form-control" id="lname">
                 
               </div>
               <div class="form-group label-floating">
@@ -112,14 +113,28 @@
                   <input type="tel" class="form-control" id="tel">
                 
               </div>
+              <div class="form-group label-floating">
+                
+                  <label class="control-label" for="tel">Project</label>
+                  <input type="text" class="form-control" id="pname">
+                
+              </div>
               <div class="form-group text-center">
                 
-                  <div class="btn btn-raised btn-primary">Search <i class="fa fa-paper-plane-o" aria-hidden="true"></i></div>
+                  <div class="btn btn-raised btn-primary search">Search</div>
                 
               </div>
             </div>
-            <div class="col-xs-12 search-results hidden">
-                <table class="table table-striped table-hover detailTable ">
+            <div class="col-xs-12 search-results" style="display:none;margin-top:30px;">
+              <div class="result-line"></div>
+                <table class="table table-striped table-hover resultsTable ">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>Name</th>
+                      <th>Source</th>
+                    </tr>
+                  </thead>
                   <tbody>
                     
                   </tbody>
@@ -137,37 +152,13 @@
         </nav>-->
        
     </div>
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="./js/index.js"></script>
     <script src="./js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="./js/appConfig.js"></script>
+    <script type="text/javascript" src="./js/search.js"></script>
     <script src="./js/bootstrap.min.js"></script>
     <script src="./js/material.min.js"></script>
     <script src="./js/ripples.min.js"></script>
-    <script src="./js/jquery.dropdown.js"></script>
-    <script type="text/javascript">
-        app.initialize();
-        $.material.init();
-        $.material.ripples();
-        $("select").dropdown({
-            "optionClass": "withripple"
-        });
-        $().dropdown({
-            autoinit: "select"
-        });
-        $(window).scroll(function() {
-                  var height=$(".toolbar").outerHeight();
-                  
-                   if ($(this).scrollTop() > height)
-                   {
-                    //$('.toolbar').slideUp("fast");
-                    $('.toolbar').css({"position":"fixed","top":"0","z-index":"999"});
-                   }
-                   else
-                   {
-                      $('.toolbar').css({"position":"static"});
-                   }
-               });
-    </script>
+    <script src="./js/snackbar.min.js"></script>
 </body>
 
 </html>

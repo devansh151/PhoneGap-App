@@ -9,6 +9,13 @@ body
     background-color: #fff;
     padding-bottom:50px;
 }
+.fa.fa-spinner.loader
+{
+    position: absolute;
+    top:55%;
+    left:40%;
+    color:#482229;
+}
 .logo
 {
     padding:15px 0px;
@@ -16,7 +23,7 @@ body
 .appname
 {
     padding:15px 0px;
-    color:#fff;
+    color:#482229;
 }
 .nav.activityTabs li.active 
 {
@@ -77,9 +84,13 @@ th {
     vertical-align: middle;
     border-top: 1px solid #ddd;
 }
+.table>tbody>tr>td.width
+{
+    width:20px;
+}
 .fa.fa-pencil-square-o
 {
-   color:#00acc1;
+   color:#482229;
    font-size: 12px; 
 }
 .fa.fa-search,.fa.fa-ellipsis-v,.fa.fa-arrow-left,.fa.fa-filter
@@ -97,7 +108,7 @@ th {
 }
 .toolbar
 {
-    background: #00acc1;
+    background: #482229;
     padding:15px;
     color:#fff;
 }
@@ -157,7 +168,7 @@ th {
 .toolbar .btn-group.open .dropdown-menu {
     position: absolute;
     top: 100%;
-    left: -108px;
+    left: -98px;
     right:0;
     z-index: 1000;
     float: left;
@@ -192,24 +203,32 @@ th {
 }
 .leadName
 {
-    text-align:center;
-    font-size: 18px;
+   text-align: center;
+    font-size: 20px;
     font-weight: bold;
+    color:#482229;
+    margin:10px 0px;
 }
 .table.detailTable
 {   
     width: 100%;
     max-width: 100%;
-    margin-bottom: 20px;
+    margin:0px;
     font-size: 14px;
     text-align: center;
     table-layout: fixed;
     border:0px solid #EEE;
 }
+.table.detailTable>tbody>tr>td, .table.detailTable>tbody>tr>th, .table.detailTable>tfoot>tr>td, .table.detailTable>tfoot>tr>th, .table.detailTable>thead>tr>td, .table.detailTable>thead>tr>th {
+    padding: 20px 8px;
+    line-height: 1.42857143;
+    vertical-align: middle;
+    border-top: none;
+}
 .table.detailTable .dropdownjs > ul[placement=bottom-left] {
     -webkit-transform-origin: top left;
     -ms-transform-origin: top left;
-    transform-origin: center;
+    transform-origin: top left;
     top: 0;
     left: inherit;
     right: 0;
@@ -219,6 +238,7 @@ th {
 .table.detailTable .form-group
 {
     margin:0;
+    text-align: left;
 }
 .table.detailTable .form-control {
     height: 38px;
@@ -229,7 +249,7 @@ th {
 }
 .leadFilters
 {
-    background: #00acc1;        
+    background: #482229;        
 }
 .badge {
     display: inline-block;
@@ -242,7 +262,49 @@ th {
     text-align: center;
     white-space: nowrap;
     vertical-align: middle;
-    background-color: #00acc1;
+    background-color: #482229;
     border-radius: 10px;
     border: 1px solid #fff;
+}
+.badge.result-badge
+{
+    font-weight:bold;
+    background-color: #ffd740;
+}
+.result-line
+{
+    font-weight: bold;
+    color:#482229;
+    text-align: center;
+}
+div#success
+{
+    display: block;
+    position: fixed;
+    bottom: 5px;
+    left:5px;
+}
+.fa.fa-times
+{
+    color:#f44336;
+    font-weight: bold;
+}
+.fa.fa-check
+{
+    color:#59b75c;
+    font-weight: bold;
+}
+.fa.fa-spinner
+{
+    color:#ffd740;
+}
+.btn.btn-default.btn-fab.reload
+{
+    position: fixed;
+    bottom:50px;
+    right:15px;
+    background:#ffd740;
+    color:#fff;
+    padding:15px;
+    z-index: 999999;
 }
