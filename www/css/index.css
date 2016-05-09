@@ -88,10 +88,18 @@ th {
 {
     width:20px;
 }
-.fa.fa-pencil-square-o
+.material-icons.edit
 {
    color:#482229;
    font-size: 12px; 
+}
+.material-icons.more-v
+{
+    color:#fff;
+}
+.material-icons.modify-filter
+{
+    color:#fff;
 }
 .fa.fa-search,.fa.fa-ellipsis-v,.fa.fa-arrow-left,.fa.fa-filter
 {
@@ -124,7 +132,7 @@ th {
 .toolbar .nav.nav-tabs>li {
     position: relative;
     display: block;
-    padding: 10px 15px;
+    padding: 10px 0px;
     margin-bottom:0px;
 }
 .toolbar .btn-group, .btn-group-vertical {
@@ -168,7 +176,7 @@ th {
 .toolbar .btn-group.open .dropdown-menu {
     position: absolute;
     top: 100%;
-    left: -98px;
+    left: -91px;
     right:0;
     z-index: 1000;
     float: left;
@@ -188,11 +196,11 @@ th {
     -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
     box-shadow: 0 6px 12px rgba(0,0,0,.175);
 }
-.fa.fa-caret-up
+.material-icons.caret-up
 {
    
     position: absolute;
-    right: 1px;
+    right: -9px;
     top: -20px;
     font-size: 30px;
 }
@@ -284,15 +292,17 @@ div#success
     bottom: 5px;
     left:5px;
 }
-.fa.fa-times
+.material-icons.times
 {
     color:#f44336;
     font-weight: bold;
+    font-size: 16px;
 }
-.fa.fa-check
+.material-icons.check
 {
     color:#59b75c;
     font-weight: bold;
+    font-size: 16px;
 }
 .fa.fa-spinner
 {
@@ -307,4 +317,73 @@ div#success
     color:#fff;
     padding:15px;
     z-index: 999999;
+}
+.ap-content-switch-selected {
+    background: #ffd740;
+    color: #FFF;
+}
+.ap-content-switch-tab {
+    border: 1px solid #482229;
+    padding: 5px 16px;
+    cursor: pointer;
+    font-size: .6em;
+    color: #482229;
+}
+.ap-theme-default {
+    color: #482229;
+}
+.ap-component-selector {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 100%;
+    height: 40px;
+    border-top: 1px solid #ffd740;
+    border-bottom: 1px solid #ffd740;
+}
+.ap-theme-default .ap-button {
+    cursor: pointer;
+    letter-spacing: 0;
+    text-align: center;
+    font-size: .8em;
+    padding: 8px 12px;
+    margin: 8px;
+    color: #482229;
+    background: rgba(255,255,255,1);
+    text-transform: uppercase;
+}
+a, a:focus, a:hover {
+    color: #482229;
+}
+a:focus, a:hover {
+    color: #23527c;
+    text-decoration: none;
+}
+.ap-layout-popup .ap-cont {
+    position: relative;
+    top: 50%;
+    max-width: 500px;
+    width: 85%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.dropdownjs::after {
+    right: 5px;
+    top: 3px;
+    font-size: 25px;
+    position: absolute;
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    content: "\e5c5";
+    pointer-events: none;
+    color: #482229;
 }

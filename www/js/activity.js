@@ -2,6 +2,7 @@ $(document).ready(function(){
 	app.initialize();
     $.material.init();
     $.material.ripples();
+    //alert(sessionStorage.someKey);
     $(".reload").attr("href",window.location.href);
         $.ajax({
         	type:'GET',
@@ -16,7 +17,7 @@ $(document).ready(function(){
            $(".loader").fadeOut("slow",function(){
                 $.each(response, function(key,value) {
                         node='<tr id="'+ value.id +'">\
-                        <td class="width"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></td>\
+                        <td class="width"><i class="material-icons edit">edit</i></td>\
                         <td>'+ value.name +'</td>\
                         <td>'+ value.lead_source +'</td>\
                         <td>'+ value.project_name +'</td>\

@@ -41,7 +41,7 @@ app.initialize();
                   $(".search-results table tbody").html("");
                     $.each(result, function(key,value) {
                             node='<tr id="'+ value.id +'">\
-                            <td class="width"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></td>\
+                            <td class="width"><i class="material-icons edit">edit</i></td>\
                             <td>'+ value.name +'</td>\
                             <td>'+ value.lead_source +'</td>\
                           </tr>';
