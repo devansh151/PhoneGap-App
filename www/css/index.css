@@ -285,12 +285,29 @@ th {
     color:#482229;
     text-align: center;
 }
+span#fail
+{
+    display: block;
+    position: fixed;
+    bottom: 5px;
+    left:5px;
+	 z-index: 9999999;
+}
 div#success
 {
     display: block;
     position: fixed;
     bottom: 5px;
     left:5px;
+	 z-index: 9999999;
+}
+div#error
+{
+    display: block;
+    position: fixed;
+    bottom: 5px;
+    left:5px;
+	 z-index: 9999999;
 }
 .material-icons.times
 {
@@ -301,6 +318,12 @@ div#success
 .material-icons.check
 {
     color:#59b75c;
+    font-weight: bold;
+    font-size: 16px;
+}
+.material-icons.wrong
+{
+    color:#f44336;
     font-weight: bold;
     font-size: 16px;
 }
@@ -318,16 +341,16 @@ div#success
     padding:15px;
     z-index: 999999;
 }
-.ap-content-switch-selected {
-    background: #ffd740;
-    color: #FFF;
-}
 .ap-content-switch-tab {
     border: 1px solid #482229;
     padding: 5px 16px;
     cursor: pointer;
     font-size: .6em;
     color: #482229;
+}
+.ap-content-switch-selected {
+    background: #ffd740;
+    color: #FFF;
 }
 .ap-theme-default {
     color: #482229;

@@ -48,13 +48,15 @@
       <!-- Bootstrap Material Design -->
       <link rel="stylesheet" type="text/css" href="./css/bootstrap-material-design.min.css">
       <link rel="stylesheet" type="text/css" href="./css/ripples.min.css">
+      <link rel="stylesheet" type="text/css" href="./css/snackbar.min.css" />
     <link rel="stylesheet" type="text/css" href="./css/index.css" />
-    <title>Hello World</title>
+    <title>PrimeHomes</title>
 </head>
 
 <body>
     <div class="container" style="padding:0px;">
       <i class="fa fa-spinner fa-spin fa-3x fa-fw margin-bottom loader"></i>
+      <span id="fail" data-toggle="snackbar" data-html-allowed="true" data-content="<i class='material-icons times'>error_outline</i>&nbsp;&nbsp;Cannot save data. Please Try again!!"></span>
       <a class="btn btn-default btn-fab reload"><i class="material-icons">refresh</i></a>
             <div class="col-xs-12 toolbar">
               <ul class="nav nav-tabs pull-left">
@@ -150,6 +152,7 @@
     <script src="./js/bootstrap.min.js"></script>
     <script src="./js/material.min.js"></script>
     <script src="./js/ripples.min.js"></script>
+     <script src="./js/snackbar.min.js"></script>
 </body>
 
 </html>

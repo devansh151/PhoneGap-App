@@ -53,7 +53,7 @@
       <link rel="stylesheet" type="text/css" href="./css/anypicker-all.min.css" />
       <link rel="stylesheet" type="text/css" href="./css/snackbar.min.css" />
     <link rel="stylesheet" type="text/css" href="./css/index.css" />
-    <title>Hello World</title>
+    <title>PrimeHomes</title>
 </head>
 
 <body>
@@ -61,7 +61,8 @@
        <i class="fa fa-spinner fa-spin fa-3x fa-fw margin-bottom loader"></i>
        <a class="btn btn-default btn-fab reload"><i class="material-icons">refresh</i></a>
        <div id="success" data-toggle="snackbar" data-html-allowed="true" data-content="<i class='material-icons check'>check</i>&nbsp;&nbsp;Lead Data Saved Successfully!!"></div>
-       <span id="fail" data-toggle="snackbar" data-html-allowed="true" data-content="<i class='material-icons times'>error_outline</i>&nbsp;&nbsp;Cannot save data. Please Try again!!"></span>
+       <div id="error" data-toggle="snackbar" data-html-allowed="true" data-content=""></div>
+       <span id="fail" data-toggle="snackbar" data-html-allowed="true" data-content="<i class='material-icons times'>error_outline</i>&nbsp;&nbsp;Cannot load data. Please Try again!!"></span>
             <div class="col-xs-12 toolbar one-edge-shadow">
               <ul class="nav nav-tabs pull-left">
                     <li>
@@ -97,6 +98,14 @@
             <div class="col-xs-12">
                 <table class="table detailTable ">
                   <tbody style="display:none;">
+                    <tr>
+                      <td>
+                          <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" class="form-control" placeholder="Lead Name">
+                          </div>
+                      </td>
+                    </tr>
                     <tr>
                       <td>
                           <div class="form-group">
