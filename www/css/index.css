@@ -16,6 +16,39 @@ body
     left:40%;
     color:#482229;
 }
+.hidden
+{
+	display:none;
+}
+.list-group .list-group-item .list-group-item-heading {
+    color: rgba(0,0,0,.54);
+    font-size: 14px;
+    line-height: 29px;
+}
+.list-group .list-group-item {
+    background-color: transparent;
+    overflow: hidden;
+    border: 0;
+    border-radius: 0;
+	padding:0px;
+}
+.list-group .list-group-item .row-action-primary i, .list-group .list-group-item .row-picture i {
+    background:none;
+    border-radius: 100%;
+    text-align: center;
+    line-height: 56px;
+    font-size: 20px;
+    width: auto;
+    color: #482229;
+    height: auto;
+}
+.list-group .list-group-separator:before {
+    content: "";
+    width: -webkit-calc(100% - 36px);
+    width: calc(100% - 36px);
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    float: right;
+}
 .logo
 {
     padding:15px 0px;
@@ -25,19 +58,19 @@ body
     padding:15px 0px;
     color:#482229;
 }
-.nav.activityTabs li.active 
+.nav.activityTabs li.active,.nav.detailTabs li.active 
 {
     border-bottom: 3px solid #fff;
 }
 .nav li {
     display:table-cell !important;
 }
-.nav-tabs.nav-justified.activityTabs>li>a {
+.nav-tabs.nav-justified.activityTabs>li>a,.nav-tabs.nav-justified.detailTabs>li>a {
     margin-bottom:0px;
     text-align: center;
     font-size: 12px;
 }
-.nav-tabs.nav-justified.activityTabs {
+.nav-tabs.nav-justified.activityTabs,.nav-tabs.nav-justified.detailTabs {
    width: 100%;
     border-bottom: 0;
     display: table;
@@ -53,7 +86,7 @@ body
     display: table;
     table:layout:fixed;
 }
-.nav.activityTabs>li>a {
+.nav.activityTabs>li>a,.nav.detailTabs>li>a {
     position: relative;
     display: block;
     padding: 20px 15px;
@@ -74,6 +107,8 @@ body
     margin-bottom: 20px;
     font-size: 12px;
     text-align: center;
+	word-break: break-all;
+	table-layout:fixed;
 }
 th {
     text-align: center;
@@ -254,6 +289,9 @@ th {
     font-size: 14px;
     text-align:left;
     line-height: 1.42857143;
+}
+.table.detailTable textarea.form-control {
+	min-height:100px;
 }
 .leadFilters
 {

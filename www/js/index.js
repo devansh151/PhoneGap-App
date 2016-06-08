@@ -2,6 +2,7 @@ $(document).ready(function() {
     app.initialize();
     $.material.init();
     $.material.ripples();
+    sessionStorage.clear();
     $('input').keypress(function(e) {
         var code = (e.keyCode ? e.keyCode : e.which);
         if ( (code==13) || (code==10))
@@ -16,7 +17,7 @@ $(document).ready(function() {
             var formData = "user_name=" + username + "&password=" + password + "&login_request=1";
             $.ajax({
                 type: 'POST',
-                url: 'http://192.168.8.49/crm_svn/index.php?entryPoint=crmAppLogin',
+                url: 'http://crm.primehomes.com/index.php?entryPoint=crmAppLogin',
                 ContentType: 'multipart/form-data',
                 data: formData,
                 beforeSend: function() {

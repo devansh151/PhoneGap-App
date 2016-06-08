@@ -8,28 +8,49 @@ $(document).ready(function() {
         $(".reload").attr("href", window.location.href);
         $.ajax({
             type: 'GET',
-            url: 'http://192.168.8.49/crm_svn/index.php?entryPoint=crmAppJson&session_id='+sessionStorage.sessionId+'&user_name='+sessionStorage.username,
+            url: 'http://crm.primehomes.com/index.php?entryPoint=crmAppJson&session_id='+sessionStorage.sessionId+'&user_name='+sessionStorage.username,
             dataType: 'json',
             beforeSend: function() {
                 $(".loader").fadeIn("fast");
             },
             success: function(response) {
-
-                //alert(JSON.stringify(response));
                 $(".loader").fadeOut("slow", function() {
+                    var nodeA='';
+                    var nodeB='';
                     $.each(response, function(key, value) {
-                        node = '<tr id="' + value.id + '">\
-                        <td class="width"><i class="material-icons edit">edit</i></td>\
-                        <td>' + value.name + '</td>\
-                        <td>' + value.lead_source + '</td>\
-                        <td>' + value.project_name + '</td>\
-                      </tr>';
+
+                       
                         if (value.lead_type == 'New') {
-                            $("#activityContent #newLeads table tbody").append(node);
-                        } else {
-                            $("#activityContent #followUpLeads table tbody").append(node);
+                             nodeA =nodeA+'<tr id="' + value.id + '">\
+                                <td>' + value.name + '</td>\
+                                <td>' + value.status + '</td>\
+                                <td>' + value.project_name + '</td>\
+                              </tr>';
+                            
+
+                        } else if(value.lead_type == 'Follow Up'){
+                            nodeB =nodeB+'<tr id="' + value.id + '">\
+                                <td>' + value.name + '</td>\
+                                <td>' + value.status + '</td>\
+                                <td>' + value.project_name + '</td>\
+                              </tr>';
+                            
                         }
+                        //console.log(node);
                     });
+                $("#activityContent #newLeads table tbody").append(nodeA);
+                $("#activityContent #followUpLeads table tbody").append(nodeB);
+                if(sessionStorage.activeTab)
+                {
+                    //alert(sessionStorage.activeTab);
+                     $('.activityTabs a[href="#'+ sessionStorage.activeTab +'"]').tab('show');
+                     //var scrollelem=$('tr#'+sessionStorage.leadId);
+                     $('.activityTabs a[href="#'+ sessionStorage.activeTab +'"]').on('shown.bs.tab', function (e) {
+                       $("html, body").stop().animate({ scrollTop: $('tr#'+sessionStorage.leadId).offset().top - 220 }, 400,function(){
+                        });
+                    })
+                    
+                }
                 });
 
             },
@@ -44,7 +65,12 @@ $(document).ready(function() {
             var id = $(this).attr("id");
             //alert("aa");
             if (id != null)
+            {
                 window.location.href = "leadDetail.html?id=" + id;
+                var activeTab=$(this).closest('.tab-pane').attr("id");
+                sessionStorage.activeTab=activeTab;
+                sessionStorage.leadId=id;
+            }
         });
 
         $(window).scroll(function() {

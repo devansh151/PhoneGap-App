@@ -3,6 +3,8 @@ $(document).ready(function() {
         app.initialize();
         $.material.init();
         $.material.ripples();
+        sessionStorage.removeItem('activeTab');
+        sessionStorage.removeItem('leadId');
         $("select").dropdown({
             "optionClass": "withripple"
         });
@@ -25,7 +27,7 @@ $(document).ready(function() {
 
             $.ajax({
                 type: 'GET',
-                url: 'http://192.168.8.49/crm_svn/index.php?entryPoint=crmAppJson&user_name='+sessionStorage.username+'&session_id='+ sessionStorage.sessionId +'&name=' + lname + '&email=' + email + '&phone=' + tel + '&project_name=' + pname,
+                url: 'http://crm.primehomes.com/index.php?entryPoint=crmAppJson&user_name='+sessionStorage.username+'&session_id='+ sessionStorage.sessionId +'&name=' + lname + '&email=' + email + '&phone=' + tel + '&project_name=' + pname,
                 dataType: 'json',
                 beforeSend: function() {
                     $(".search-form").fadeOut("fast");
@@ -46,9 +48,8 @@ $(document).ready(function() {
                         $(".search-results table tbody").html("");
                         $.each(result, function(key, value) {
                             node = '<tr id="' + value.id + '">\
-                            <td class="width"><i class="material-icons edit">edit</i></td>\
                             <td>' + value.name + '</td>\
-                            <td>' + value.lead_source + '</td>\
+                            <td>' + value.status + '</td>\
                           </tr>';
 
                             $(".search-results table tbody").append(node);
