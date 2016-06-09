@@ -5,6 +5,11 @@ $(document).ready(function() {
         $.material.ripples();
         sessionStorage.removeItem('activeTab');
         sessionStorage.removeItem('leadId');
+         $(".logout").click(function(){
+            
+            sessionStorage.clear();
+            window.location.href="index.html";
+        })
         $("select").dropdown({
             "optionClass": "withripple"
         });

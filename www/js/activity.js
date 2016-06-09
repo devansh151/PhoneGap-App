@@ -5,6 +5,11 @@ $(document).ready(function() {
         $.material.init();
         $.material.ripples();
         //alert(sessionStorage.someKey);
+        $(".logout").click(function(){
+
+            sessionStorage.clear();
+            window.location.href="index.html";
+        });
         $(".reload").attr("href", window.location.href);
         $.ajax({
             type: 'GET',

@@ -1,4 +1,9 @@
 $(document).ready(function() {
+    if (sessionStorage.sessionId) {
+        window.location.href="activity.html";
+    }
+    else
+    {
     app.initialize();
     $.material.init();
     $.material.ripples();
@@ -55,5 +60,5 @@ $(document).ready(function() {
        }
        lastScrollTop = st;
     });
-
+}
 });

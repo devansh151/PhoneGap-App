@@ -3,7 +3,11 @@ $(document).ready(function() {
         app.initialize();
         $.material.init();
         $.material.ripples();
-        
+        $(".logout").click(function(){
+            
+            sessionStorage.clear();
+            window.location.href="index.html";
+        })
         $("select").dropdown({
             autoinit: "select"
         });
@@ -22,7 +26,7 @@ $(document).ready(function() {
             window.open(phone, '_system');
         });
         $.ajax({
-            type: 'GET',
+            type: 'POST',
             url: 'http://crm.primehomes.com/index.php?entryPoint=editViewApp&session_id='+ sessionStorage.sessionId +'&id=' + id +'&user_name='+sessionStorage.username,
             dataType: 'json',
             beforeSend: function() {
@@ -31,6 +35,7 @@ $(document).ready(function() {
             success: function(response) {
                 var response = $.parseJSON(JSON.stringify(response));
                 console.log(JSON.stringify(response));
+
                 $(".loader").fadeOut("slow", function() {
 
                     $(".detailTable tbody").css("display", "table-row-group");
@@ -48,8 +53,6 @@ $(document).ready(function() {
                     if (response['0'].email != null)
                         $("#email").val(response[0].email);
 
-                    //alert(pid);
-                    //$(".leadName").html(response[0].name);
                     $.each(response.project, function(index, value) {
                         $('#project').append($('<option/>', {
                             value: response.project[index].project_name,
@@ -78,7 +81,6 @@ $(document).ready(function() {
                     if (response['0'].lead_source != null)
                         $('#agent').val(response['0'].lead_source).trigger("change");
                     
-
                     $.each(response.rating, function(index, value) {
                         $('#rating').append($('<option/>', {
                             value: response.rating[index],
