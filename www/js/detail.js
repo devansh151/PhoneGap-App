@@ -103,11 +103,12 @@ $(document).ready(function() {
 
                         var date = response['0'].follow_up_date;
                         var yy = date.substr(0, 4);
-                        var mm = parseInt(date.substr(5, 2));
+                        var mm = parseInt(date.substr(5, 2))-1;
                         var dd = date.substr(8, 2);
                         var h = date.substr(11, 2);
                         var m = date.substr(14, 2);
                         var s = date.substr(17, 2);
+                        alert(mm);
                         var newDate = new Date(yy, mm, dd, h, m, s);
                         $("#fupdate").AnyPicker({
                             mode: "datetime",
