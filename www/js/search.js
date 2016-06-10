@@ -13,6 +13,10 @@ $(document).ready(function() {
         $("select").dropdown({
             "optionClass": "withripple"
         });
+        $(document).on('click','td.leadonClick',function(){
+            var phone=$(this).children().attr("href");
+            window.open(phone, '_system');
+        });
         $().dropdown({
             autoinit: "select"
         });
@@ -43,6 +47,7 @@ $(document).ready(function() {
                 success: function(result) {
                     var result = $.parseJSON(JSON.stringify(result));
                     //alert(result.length);
+                    console.log(JSON.stringify(result));
                     $(".loader").fadeOut("slow", function() {
                         $(".search-results").fadeIn();
                         if (result.length) {
@@ -53,8 +58,9 @@ $(document).ready(function() {
                         $(".search-results table tbody").html("");
                         $.each(result, function(key, value) {
                             node = '<tr id="' + value.id + '">\
-                            <td>' + value.name + '</td>\
-                            <td>' + value.status + '</td>\
+                            <td class="leadonClick"><a href="tel:' + value.phone + '"><i class="material-icons">call</i></a></td>\
+                            <td class="leadnoClick">' + value.name + '</td>\
+                            <td class="leadnoClick">' + value.status + '</td>\
                           </tr>';
 
                             $(".search-results table tbody").append(node);
@@ -102,8 +108,8 @@ $(document).ready(function() {
         });
 
 
-        $(document).on('click', '.search-results table tr', function() {
-            var id = $(this).attr("id");
+        $(document).on('click', '.search-results table tr td.leadnoClick', function() {
+            var id = $(this).parent().attr("id");
             //alert("aa");
             if (id != null)
                 window.location.href = "leadDetail.html?id=" + id;

@@ -5,6 +5,10 @@ $(document).ready(function() {
         $.material.init();
         $.material.ripples();
         //alert(sessionStorage.someKey);
+        $(document).on('click','td.leadonClick',function(){
+            var phone=$(this).children().attr("href");
+            window.open(phone, '_system');
+        });
         $(".logout").click(function(){
 
             sessionStorage.clear();
@@ -19,6 +23,8 @@ $(document).ready(function() {
                 $(".loader").fadeIn("fast");
             },
             success: function(response) {
+                var response = $.parseJSON(JSON.stringify(response));
+                console.log(JSON.stringify(response));
                 $(".loader").fadeOut("slow", function() {
                     var nodeA='';
                     var nodeB='';
@@ -27,17 +33,19 @@ $(document).ready(function() {
                        
                         if (value.lead_type == 'New') {
                              nodeA =nodeA+'<tr id="' + value.id + '">\
-                                <td>' + value.name + '</td>\
-                                <td>' + value.status + '</td>\
-                                <td>' + value.project_name + '</td>\
+                                <td class="leadonClick"><a href="tel:' + value.phone + '"><i class="material-icons">call</i></a></td>\
+                                <td class="leadnoClick">' + value.name + '</td>\
+                                <td class="leadnoClick">' + value.status + '</td>\
+                                <td class="leadnoClick">' + value.project_name + '</td>\
                               </tr>';
                             
 
                         } else if(value.lead_type == 'Follow Up'){
                             nodeB =nodeB+'<tr id="' + value.id + '">\
-                                <td>' + value.name + '</td>\
-                                <td>' + value.status + '</td>\
-                                <td>' + value.project_name + '</td>\
+                                <td class="leadonClick"><a href="tel:' + value.phone + '"><i class="material-icons">call</i></a></td>\
+                                <td class="leadnoClick">' + value.name + '</td>\
+                                <td class="leadnoClick">' + value.status + '</td>\
+                                <td class="leadnoClick">' + value.project_name + '</td>\
                               </tr>';
                             
                         }
@@ -66,9 +74,9 @@ $(document).ready(function() {
 
         });
 
-        $(document).on('click', '#activityContent table tr', function() {
-            var id = $(this).attr("id");
-            //alert("aa");
+        $(document).on('click', '#activityContent table tr td.leadnoClick', function() {
+            var id = $(this).parent().attr("id");
+            //alert(id);
             if (id != null)
             {
                 window.location.href = "leadDetail.html?id=" + id;

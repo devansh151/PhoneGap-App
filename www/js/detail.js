@@ -108,7 +108,7 @@ $(document).ready(function() {
                         var h = date.substr(11, 2);
                         var m = date.substr(14, 2);
                         var s = date.substr(17, 2);
-                        alert(mm);
+                        
                         var newDate = new Date(yy, mm, dd, h, m, s);
                         $("#fupdate").AnyPicker({
                             mode: "datetime",
