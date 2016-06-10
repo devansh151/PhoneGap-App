@@ -7,7 +7,14 @@ $(document).ready(function() {
         //alert(sessionStorage.someKey);
         $(document).on('click','td.leadonClick',function(){
             var phone=$(this).children().attr("href");
-            window.open(phone, '_system');
+            if(phone.indexOf("tel")>=0)
+            {
+                window.open(phone, '_system');
+            }
+            else
+            {
+                return false;   
+            }
         });
         $(".logout").click(function(){
 
@@ -30,10 +37,17 @@ $(document).ready(function() {
                     var nodeB='';
                     $.each(response, function(key, value) {
 
-                       
+                       if(value.phone===null)
+                       {
+                        var newPhone='<a href="javascript:void(0)"></a>';
+                       }
+                       else
+                       {
+                        var newPhone='<a href="tel:'+ value.phone + '"><i class="material-icons">call</i></a>';
+                       }
                         if (value.lead_type == 'New') {
                              nodeA =nodeA+'<tr id="' + value.id + '">\
-                                <td class="leadonClick"><a href="tel:' + value.phone + '"><i class="material-icons">call</i></a></td>\
+                                <td class="leadonClick">'+ newPhone +'</td>\
                                 <td class="leadnoClick">' + value.name + '</td>\
                                 <td class="leadnoClick">' + value.status + '</td>\
                                 <td class="leadnoClick">' + value.project_name + '</td>\
@@ -42,7 +56,7 @@ $(document).ready(function() {
 
                         } else if(value.lead_type == 'Follow Up'){
                             nodeB =nodeB+'<tr id="' + value.id + '">\
-                                <td class="leadonClick"><a href="tel:' + value.phone + '"><i class="material-icons">call</i></a></td>\
+                                <td class="leadonClick">'+ newPhone +'</td>\
                                 <td class="leadnoClick">' + value.name + '</td>\
                                 <td class="leadnoClick">' + value.status + '</td>\
                                 <td class="leadnoClick">' + value.project_name + '</td>\
